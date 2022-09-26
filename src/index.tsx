@@ -3,16 +3,18 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { registerLicense } from '@syncfusion/ej2-base';
-registerLicense("ORg4AjUWIQA/Gnt2VVhiQlFadVlJXGFWfVJpTGpQdk5xdV9DaVZUTWY/P1ZhSXxRdkxhXH9acH1VRmlVWUY=");
+import {RecoilRoot, useRecoilState} from "recoil"
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+  <RecoilRoot>
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>
+
+  </RecoilRoot>
 );
 
 // If you want to start measuring performance in your app, pass a function
