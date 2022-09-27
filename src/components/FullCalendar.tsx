@@ -14,16 +14,16 @@ import SuccessfullyBooked from "./SuccessfullyBooked";
 //   start:Date
 // }
 
-interface events {
-  id:any
-  title:string,
-  start:Date
-  end:Date,
-  allDay?:boolean
-  color?:any
-}
+// interface events {
+//   id:any
+//   title:string,
+//   start:Date
+//   end:Date,
+//   allDay?:boolean
+//   color?:any
+// }
 
-export const EventsDataAtom = atom<events[]>({
+export const EventsDataAtom = atom<any[]>({
   key:"EventsDataAtom",
   default:[{id: '1243601e-1399-42b5-90f7-01bb9ba621eb', title: 'data1', start: new Date(2022,8,27,1,30), end:new Date(2022,8,27,2), allDay: false},
   {id: '1243601e-1399-42bckjsankjc', title: 'data2', start: new Date(2022,8,27,2,20), end:new Date(2022,8,27,3), allDay: false},
@@ -65,7 +65,7 @@ const FullCalendarr = () => {
 
 
   return (
-    <div>
+    <div className="px-20">
       <FullCalendar
         plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
         headerToolbar={{

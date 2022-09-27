@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { BookShcema } from "../help/validatoin";
 import { SuccessfullyBookedAtom } from "./SuccessfullyBooked";
+import { BookDatetToViewAtom, personDataAtom } from "./View/FullCalendarView";
 
 
 export const BookDateAtom = atom({
@@ -25,6 +26,10 @@ const BookDate = ({selectInfo}:Props) => {
   const [bookDateState, setBookDateState] = useRecoilState(BookDateAtom);
   const [eventsData, setEventsData] = useRecoilState(EventsDataAtom)
   const [successfullyBookedState,setSuccessfullyBookedAState]=useRecoilState(SuccessfullyBookedAtom)
+  const [bookedDateToView,setBookedDateToView]=useRecoilState(BookDatetToViewAtom)
+  const [personData,setPersonData]=useRecoilState(personDataAtom)
+
+  
 
   const {
     register,
@@ -37,6 +42,21 @@ const BookDate = ({selectInfo}:Props) => {
   const submit = (data:IFormInputs) => {
     setBookDateState(false)
     setSuccessfullyBookedAState(true)
+    eventsData.map(date => {
+      if(date.id===selectInfo?.event?.id){
+        setBookedDateToView([...bookedDateToView,date])
+      }
+    })
+    setPersonData([...personData,{
+      firstName:data.firstName,
+      lastName:data.lastName,
+      phone:data.phone,
+      id:selectInfo?.event?.id
+    }])
+
+    const dates = eventsData.filter(date => date.id!==selectInfo?.event?.id)
+    setEventsData(dates)
+
   }
 
 
