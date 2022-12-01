@@ -3,12 +3,16 @@ import "./App.css";
 import BookCalender from "./pages/BookCalender";
 import EditCalendar from "./pages/EditCalendar";
 import ViewCalendar from "./pages/ViewCalendar";
+import ReservationFullCalandar from "./components/ReservationFullCalandar";
+import TimeLine from "./pages/TimeLine";
 
 
 const routse = [
   { path: "/", name: "Book", Component: BookCalender },
   { path: "/viewcalendar", name: "View", Component: ViewCalendar },
   { path: "/editcalendar", name: "edit", Component: EditCalendar },
+  { path: "/reservationcalandar", name: "Reservation", Component: ReservationFullCalandar },
+  // { path: "/timeline", name: "Time Line", Component: TimeLine },
 ];
 
 function App() {
@@ -35,6 +39,9 @@ function App() {
           <Route exact path="/" component={BookCalender} />
           <Route path="/viewcalendar" component={ViewCalendar} />
           <Route path="/editcalendar" component={EditCalendar} />
+          <Route path="/reservationcalandar" component={ReservationFullCalandar} />
+          {/* <Route path="/timeline" component={TimeLine} /> */}
+
         </Switch>
       </div>
     </div>

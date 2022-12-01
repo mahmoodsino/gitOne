@@ -4,11 +4,11 @@ import CloseIcon from "./icon/CloseIcon";
 import TrashIcon from "./icon/TrashIcon";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import { EventsDataAtom } from "./FullCalendar";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { schdualeShcema } from "../help/validatoin";
 import { v4 } from "uuid";
+import { EventsDataAtom } from "./ReservationFullCalandar";
 
 export const EventsModalAtom = atom({
   key: "eventsModalAtom",
@@ -80,6 +80,7 @@ const EventsModal = ({ selectInfo }: Props) => {
           end: endDate,
           allDay: data.check,
           color: colore,
+          
         },
       ]);
       // let calendarApi = selectInfo.view.calendar
@@ -93,7 +94,6 @@ const EventsModal = ({ selectInfo }: Props) => {
       setEventModal(false);
     }
     setValue("title", "");
-    console.log(data.check);
   };
   const deleteEvent = () => {
     if (selectInfo.event?.id) {

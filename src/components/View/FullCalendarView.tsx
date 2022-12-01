@@ -49,8 +49,12 @@ const FullCalendarView = () => {
         initialView="dayGridMonth"
         // selectable={true}
         dayMaxEvents={true}
+        slotMinTime= '8:00:00'
+        slotMaxTime= '19:00:00'
         eventClick={handleEventClick}
         editable= {false}
+        navLinks={true}
+
         events={bookedDateToView}
         />
       <ViewBookedDateModal selectInfo={info}/>

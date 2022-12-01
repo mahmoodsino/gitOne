@@ -6,7 +6,6 @@ import FullCalendar from '@fullcalendar/react';
 import { useRecoilState } from 'recoil';
 import { BookDatetToViewAtom } from '../View/FullCalendarView';
 import CancelViewBookedDate, { CancelViewBookedDateAtom } from './CancelViewBookedDate';
-//@ts-ignore
 import ConfirmDelete from './ConfirmDelete';
 
 const FullCalendarEdit = () => {
@@ -30,9 +29,13 @@ const FullCalendarEdit = () => {
           right: "dayGridMonth,timeGridWeek,timeGridDay",
         }}
         initialView="dayGridMonth"
+        slotMinTime= '8:00:00'
+        slotMaxTime= '19:00:00'
         dayMaxEvents={true}
         eventClick={handleEventClick}
         editable= {false}
+        navLinks={true}
+
         events={bookedDateToView}
         />
         <CancelViewBookedDate selectInfo={info} />

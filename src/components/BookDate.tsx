@@ -1,11 +1,11 @@
 import { atom, useRecoilState } from "recoil";
-import { EventsDataAtom } from "./FullCalendar";
 import CloseIcon from "./icon/CloseIcon";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { BookShcema } from "../help/validatoin";
 import { SuccessfullyBookedAtom } from "./SuccessfullyBooked";
 import { BookDatetToViewAtom, personDataAtom } from "./View/FullCalendarView";
+import { EventsDataAtom } from "./ReservationFullCalandar";
 
 
 export const BookDateAtom = atom({
