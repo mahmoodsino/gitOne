@@ -4,8 +4,8 @@
 
 
 .fc-scrollgrid ,.fc-scrollgrid-liquid{
-    min-height: 50% !important;
-    max-height: 50% !important;
+    /* min-height: 50% !important; */
+    /* max-height: 50% !important; */
     padding-right: 10px !important;
     width: 100%!important;
 }
@@ -16,6 +16,6 @@
 } */
 
 .fc-daygrid-day-frame, .fc-scrollgrid-sync-inner{
-    display: flex;
-    justify-content: left;
+    /* display: flex; */
+    /* justify-content: left; */
 }

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { atom, useRecoilState } from "recoil";
 import CloseIcon from "./icon/CloseIcon";
 import TrashIcon from "./icon/TrashIcon";
@@ -47,7 +47,7 @@ const EventsModal = ({ selectInfo }: Props) => {
     } else if (selectInfo.event?.id) {
       setStartDate(selectInfo?.event?.start);
       setEndDate(selectInfo.event?.end);
-      setColore(selectInfo.event?.colore);
+      setColore(selectInfo.event?.backgroundColor);
       setValue("title", selectInfo.event?.title);
       setValue("check", selectInfo.event?.allDay);
     }
@@ -64,7 +64,9 @@ const EventsModal = ({ selectInfo }: Props) => {
         start: startDate,
         end: endDate,
         allDay: data.check,
-        color: colore,
+        backgroundColor: selectInfo.event?.backgroundColor,
+        resourceId:selectInfo.resource.id
+
       };
       const events = [...eventsData];
       events.splice(index, 1, updateEvet);
@@ -79,18 +81,10 @@ const EventsModal = ({ selectInfo }: Props) => {
           start: startDate,
           end: endDate,
           allDay: data.check,
-          color: colore,
-          
+          backgroundColor: colore,
+          resourceId:selectInfo.resource.id
         },
       ]);
-      // let calendarApi = selectInfo.view.calendar
-      // calendarApi.unselect()
-      // calendarApi.addEvent({
-      //   id: createEventId(),
-      //   title:data.title,
-      //   start:startDate,
-      //   end: endDate,
-      // })
       setEventModal(false);
     }
     setValue("title", "");
